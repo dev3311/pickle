@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Decision Tree Classifier</title>
+  
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    a:link, a:visited {
+  background-color: #f42718;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+a:hover, a:active {
+  background-color: rgb(72, 182, 246);
+  scale: 1.05;
+}
+
+    
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    
+    button[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button[type=submit]:hover {
+      background-color: #139219;
+      scale: 1.03;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #b1f1fa;
+      padding: 20px;
+    }
+    </style>
+
+</head>
+
+<body>
+ <div class="container">
+  <a href="https://digitaltalent.shop/projects.html" >Projets Home</a>
+     <a href="https://digitaltalent.shop/tree.html" >Explore PDF</a>
+	<h2>Decision Tree Classifier</h2>
+
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{url_for('predict')}}" method="post">
+      <label for="input_value1">1.Culmen Length in mm</label><br>
+      <input type="text" name="input_value1" placeholder="Culmen Length " required="required" /><br>
+      <label for="input_value1">2.Culmen Depth in mm</label><br>
+      <input type="text" name="input_value2" placeholder="Culmen Depth" required="required" /><br>
+      <label for="input_value1">3.Flipprt Length in mm</label><br>
+      <input type="text" name="input_value3" placeholder="Flipprt Length" required="required" /><br>
+     <label for="input_value1">4.Body Mass in grams</label><br>
+      <input type="text" name="input_value4" placeholder="Body Mass " required="required" /><br>
+      <p>If Penguin was found in Biscoe Island. <br> Scip section 5 and 6. Fill out section 7. Gender.</p><br>
+     <label for="Island">5.Penguin was found in Dream</label><br>
+    <select name="Dream" id="Island">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    
+    </select><br>
+    <label for="Island">6.Penguin was found in Torgersen</label><br>
+    <select name="Torgersen" id="Island">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select><br>
+    <label for="gender">7. Identify Penguin's Gender</label><br>
+    <select name="gender" id="gender">
+      <option value="1">Male</option>
+      <option value="0">Female</option>
+     </select>
+     <button type="submit" class="btn btn-primary btn-block btn-large">Predict Penguin Type</button>
+    </form>
+
+   <br>
+   <br>
+   <h4 style="color:rgb(43, 61, 82); font-size: 1,6rem;">
+   {{ prediction_text }} </h4>
+
+ </div>
+
+
+</body>
+</html>
